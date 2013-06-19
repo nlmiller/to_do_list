@@ -1,0 +1,14 @@
+@charset "UTF-8";
+/* CSS Document */
+
+
+body {
+	background-image:url(paper.gif);
+	font-family: 'Shadows Into Light', cursive; /*Google font used for list*/
+	font-size:36px;
+}
+
+ul {
+	list-style:none; /*Take away the bullet points on the unordered list*/
+}
+
