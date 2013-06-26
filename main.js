@@ -1,6 +1,6 @@
 // JavaScript Document
 
-var homework = {
+/*var homework = {
     "name": "Homework",
     status: "incomplete",
     date: "Due 6/28/13"
@@ -28,53 +28,67 @@ var laundry = {
     "name": "Laundry",
     status: "complete",
     date: "Due 6/18/13"
-};
+};*/
 
-var name;
-for (name in homework) {
-    if (typeof homework[name] !== 'function')
-    document.write(homework[name]);
+var myTasks = [{
+    'name': 'Laundry',
+    'complete': true,
+     'date': 'Due 6/18/13'
+}, {
+    'name' : 'Homework',
+    'complete' : false,
+    'date': 'Due 6/28/13'
+}, {
+    'name': 'Gym',
+    'complete': true,
+    'date': 'Due 6/18/13'
+}, {
+    'name': 'Cook Dinner',
+
+    'date': 'Due 6/18/13'
+}, {
+    'name': 'Shower',
+    'complete': true,
+    'date': 'Due 6/18/13'
+}];
+
+
+for(var i = 0; i < myTasks.length; i++) {
+    //document.write(myTasks[i]);
+    document.write(myTasks[i].name + ' ' );
+    document.write(myTasks[i].complete + ' ' );
+    document.write(myTasks[i].date  + '<br >');
 }
 
-for (name in gym) {
-    if (typeof gym[name] !== 'function')
-    document.write(gym[name]);
+
+for(var i = 0; i < myTasks.length; i++) {
+    try {
+       print(myTasks[i]);
+    } catch (error) {
+        console.log(error);
+    }
 }
 
-for (name in cookDinner) {
-    if (typeof cookDinner[name] !== 'function')
-    document.write(cookDinner[name]);
+function print(theTask){
+    if(typeof theTask.name == 'undefined') {
+        throw 'The task name is missing!'
+    } else if (typeof theTask.complete == 'undefined') {
+        throw 'The task status is missing!'
+    } else {
+        console.log('print this out as a fancy list item with a check next to it if theTask.complete is true.');
+    }
 }
 
-for (name in shower) {
-    if (typeof shower[name] !== 'function')
-    document.write(shower[name]);
-}
-
-for (name in laundry) {
-    if (typeof laundry[name] !== 'function')
-    document.write(laundry[name]);
-}
-
-
-function finished(status) {
-  if (status == 'complete')
-    return status;
-  else
-  throw "Task is not yet completed";
-}
-
-/*
-var toDo = [ homework.name, gym.name, cookDinner.name , shower.name, laundry.name];
+/*var tasks = [ homework, gym, cookDinner , shower, laundry];
 
 document.write('<ul>'); //print unordered list onto html page
 
-for(var i = 0; i < toDo.length; i++) {
-	document.write('<li>' + toDo[i] + '</li>');  //write the array item and list item tags
+for(var i = 0; i < tasks.length; i++) {
+	document.write('<li>' + tasks[i] + '</li>');  //write the array item and list item tags
 }
 
 document.write('</ul>');  //end unordered list
-*/
 
+*/
 
 
