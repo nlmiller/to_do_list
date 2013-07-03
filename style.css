@@ -12,3 +12,7 @@ ul {
 	list-style:none; /*Take away the bullet points on the unordered list*/
 }
 
+.complete {
+    color:red;
+}
+
