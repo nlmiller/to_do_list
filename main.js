@@ -1,7 +1,10 @@
 // JavaScript Document
 
 
-var myTasks = [{
+
+$(document).ready(function() {
+    
+    var myTasks = [{
     'name': 'Laundry',
     'complete': true,
      'date': 'Due 6/18/13'
@@ -23,7 +26,6 @@ var myTasks = [{
     'date': 'Due 6/18/13'
 }];
 
-
 for(var i = 0; i < myTasks.length; i++) {
     try {
        print(myTasks[i]);
@@ -32,36 +34,24 @@ for(var i = 0; i < myTasks.length; i++) {
     }
 }
 
-/*function print(theTask){
-    if(typeof theTask.name == 'undefined') {
-        throw 'The task name is missing!'
-    } else if (typeof theTask.complete == 'undefined'); {
-        throw 'The task status is missing!'
+function print(theTask){
+    if(typeof theTask.name === 'undefined') {
+        throw 'The task name is missing!';
+    } else if (typeof theTask.complete === 'undefined') {
+        throw 'The task status is missing!';
+    } 
+    
+    if(theTask.complete) {
+        return '<li class="complete">' + theTask.name + '</li>';
     } else {
-        document.write(myTasks[i].name + ' ' + myTasks[i].complete + ' ' + myTasks[i].date + '<br >');
-        //console.log('print out a pretty list here')
-  }
-}*/
-
-var laundry = {
-    'name': 'Laundry',
-    'complete': true,
-     'date': 'Due 6/18/13'
-};
-
-var homework = {
-    'name' : 'Homework',
-    'complete' : false,
-    'date': 'Due 6/28/13'
-}
-
-$(document).ready(function() {
+        return '<li>' + theTask.name + '</li>';
+    }
     
 
-$(document.body).append(laundry.name + '' + laundry.complete + ' ' + laundry.date + ' ' + homework.name + ' ' + homework.complete + '' + homework.date);
-//$(document.body).appendTo(myTasks[i].name + '' + myTasks[i].complete + '' + myTasks[i].date);
 
-$(laundry).addClass('.complete').css({'background-color':'blue'});
+$('.container').append(myTasks[i].name + '' + myTasks[i].complete + '' + myTasks[i].date);
+
+//$(laundry).addClass('.complete').css({'background-color':'blue'});
 
 });
 

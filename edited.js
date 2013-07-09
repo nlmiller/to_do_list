@@ -1,8 +1,10 @@
-var myTasks = [{
+$(document).ready(function(){
+    
+    var myTasks = [{
     'name': 'Laundry',
     'complete': true,
-     'date': 'Due 6/18/13'
-}, {
+    'date': 'Due 6/18/13'
+},{
     'name' : 'Homework',
     'complete' : false,
     'date': 'Due 6/28/13'
@@ -19,30 +21,42 @@ var myTasks = [{
     'complete': true,
     'date': 'Due 6/18/13'
 }];
-
-document.write('<h2>My Tasks</h2>');
-document.write('<ul>');
-
-for(var i= 0; i < tasks.length; i++) {
-    try {
-        printTask(tasks[i]);
-    } catch (msg) {
-        console.log('There is a problem: ' + msg);
-    }
-}
-
-document.write('</ul>');
-
-function printTask(task) {
-    if(typeof task.name == 'undefined') {
-        throw 'The name of this task is missing! Help!';
-    } else if (typeof task.complete == 'undefined') {
-        throw 'The completion status of this task is gone. OH NO'
+    
+    var html = '<h2>To Do</h2>'; // contain our HTML as a string
+    
+        html +='<ul>';
+    
+    
+    for(var i= 0; i < myTasks.length; i++) {
+        try {
+            html += printTask(myTasks[i]);
+        } catch (msg) {
+            console.log('There is a problem: ' + msg);
+        }
     }
     
-    if(task['complete']) {
-        document.write('<li class="complete">' + task.name + '</li>');
+    html += '</ul>';
+    
+    
+    $('.container').append(html);    
+
+});
+
+function printTask(myTask) {
+    if(typeof myTask.name === 'undefined') {
+        throw 'The name of this task is missing! Help!';
+    } else if (typeof myTask.complete === 'undefined') {
+        throw 'The completion status of this task is gone. OH NO';
+    }
+    
+    if(myTask.complete) {
+        return '<li class="complete">' + myTask.name + '</li>';
     } else {
-        document.write('<li>' + task.name + '</li>'); 
+        return '<li>' + myTask.name + '</li>'; 
     }
 }
+
+function removeCompleted() {
+    $('.complete').remove();
+}
+
