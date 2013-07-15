@@ -21,7 +21,7 @@ $(document).ready(function(){
     'complete': true,
     'date': 'Due 6/18/13'
 }];
-    
+ 
     var html = '<h2>To Do</h2>'; // contain our HTML as a string
     
         html +='<ul>';
@@ -38,7 +38,7 @@ $(document).ready(function(){
     html += '</ul>';
     
     
-    $('.container').append(html);    
+    $('.container').append(html);   
 
 });
 
@@ -59,4 +59,11 @@ function printTask(myTask) {
 function removeCompleted() {
     $('.complete').remove();
 }
+
+/*
+var Task = function(name) {
+    this.name = name || 'Generic task';
+    this['complete']= false;
+    this.due = new Date();
+}*/
 
