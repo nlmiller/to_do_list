@@ -10,7 +10,7 @@ $(document).ready(function(){
     'date': 'Due 6/28/13'
 }, {
     'name': 'Gym',
-    'complete': true,
+    'complete': false,
     'date': 'Due 6/18/13'
 }, {
     'name': 'Cook Dinner',
@@ -22,7 +22,7 @@ $(document).ready(function(){
     'date': 'Due 6/18/13'
 }];
  
-    var html = '<h2>To Do</h2>'; // contain our HTML as a string
+    var html = '<h2>To Do</h2>'; 
     
         html +='<ul>';
     
@@ -40,6 +40,8 @@ $(document).ready(function(){
     
     $('.container').append(html);   
 
+    $('.complete').remove();
+
 });
 
 function printTask(myTask) {
@@ -56,14 +58,5 @@ function printTask(myTask) {
     }
 }
 
-function removeCompleted() {
-    $('.complete').remove();
-}
 
-/*
-var Task = function(name) {
-    this.name = name || 'Generic task';
-    this['complete']= false;
-    this.due = new Date();
-}*/
 
