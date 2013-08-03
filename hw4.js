@@ -24,9 +24,9 @@ $(document).ready(function() {
             }],
             'render':function (task) { 
                     if(typeof task.name === 'undefined') {
-                    throw 'The name of this task is missing! Help!';
+                    throw 'The name of this task is missing!';
                 } else if (typeof task.complete === 'undefined') {
-                    throw 'The completion status of this task is gone. OH NO';
+                    throw 'The completion status of this task is gone.';
                 }
     
                      if(task.complete) {
@@ -46,9 +46,9 @@ $(document).ready(function() {
                 var tasks = this.tasks;
                 var html = '<h2>My Tasks</h2>'; // contain our HTML as a string
     
-                    html +='<ul>';
+                    //html +='<ul>';
 
-                    for(var i= 0; i < tasks.list.length; i++) {
+                    for(var i= 0; i < tasks.length; i++) {
                         try {
                             html += tasks.render(tasks.list[i]);
                         } catch (msg) {
@@ -60,38 +60,8 @@ $(document).ready(function() {
                     $('.container').html(html);
         },
         'init' : function() {
-            this.add('Take out the garbage', moment('2013-07-15'));
-            this.add('Fold the laundry', moment());
-            this.add('Feed the dog');
-            this.add('Do week 7 slides');
-            this.display();
         }
          
-    }
-    myTask.init();
+    };
 });
 
-/*
-function () {
-            var tasks = this.tasks;
-            var html = '<h2>To Do</h2>'; // contain our HTML as a string
-    
-             html +='<ul>';
-    
-    
-             for(var i= 0; i < myTasks.list.length; i++) {
-                 try {
-                 html += myTasks.render(myTasks.list[i]);
-                 //html += printTask(myTasks[i]);
-                } catch (msg) {
-                console.log('There is a problem: ' + msg);
-                }
-            }
-    
-             html += '</ul>';
-
-            $('.container').append(html);
-        }
-        
-        
-    }*/
