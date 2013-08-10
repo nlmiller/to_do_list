@@ -41,6 +41,12 @@ $(document).ready(function(){
     $('.container').append(html);   
 
     $('.complete').remove();
+    
+    $('.input').on('keypress', keypressFunction);
+    
+    $(myTasks.name).on('click', function(evt){
+    	console.log('You just clicked this task'); 
+	});
 
 });
 
@@ -58,5 +64,11 @@ function printTask(myTask) {
     }
 }
 
+
+function keypressFunction() {
+    var val = $(this).val();
+	//console.log(val);
+    $('.container').append(this.val());
+}
 
 
