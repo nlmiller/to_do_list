@@ -14,7 +14,7 @@ $(document).ready(function() {
                 'complete' : false
                 }, {
                 'name': 'Gym',
-                'complete': true
+                'complete': false
                 }, {
                 'name': 'Cook Dinner'
                 
@@ -22,7 +22,7 @@ $(document).ready(function() {
                 'name': 'Shower',
                 'complete': true
             }],
-            'render':function (task) { 
+            'render': function (task) { 
                     if(typeof task.name === 'undefined') {
                     throw 'The name of this task is missing!';
                 } else if (typeof task.complete === 'undefined') {
@@ -36,19 +36,19 @@ $(document).ready(function() {
                 }
                 }
             },
-        'add' : function() {
-            
+        'add' : function(name) {
+            this.tasks.list.push(new tasks(name));
         },
         'remove' : function() {
             $('.complete').remove();   
         },
         'dispay' :function() {
                 var tasks = this.tasks;
-                var html = '<h2>My Tasks</h2>'; // contain our HTML as a string
+                var html = '<h2>My Tasks</h2>';
     
-                    //html +='<ul>';
+                    html +='<ul>';
 
-                    for(var i= 0; i < tasks.length; i++) {
+                    for(var i= 0; i < tasks.list.length; i++) {
                         try {
                             html += tasks.render(tasks.list[i]);
                         } catch (msg) {
@@ -60,8 +60,14 @@ $(document).ready(function() {
                     $('.container').html(html);
         },
         'init' : function() {
+            this.add('Finish Project');
+            this.add('Email Boss');
+            this.add('Call Tim');
+            this.display();
         }
+        
          
     };
 });
+
 
